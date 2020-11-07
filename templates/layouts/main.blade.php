@@ -13,11 +13,17 @@
 		<link rel="manifest" href="/site.webmanifest">
 
 		<link rel="stylesheet" type="text/css" href="/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+
+		<script src="/vendor/jquery-3.5.1.min.js"></script>
+		<script src="/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+		<script src="/assets/js/main.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 			  	<a class="navbar-brand" href="/">Clean24x7.ru</a>
+			  	
 			  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			    		<span class="navbar-toggler-icon"></span>
 			  	</button>
