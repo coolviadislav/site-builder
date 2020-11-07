@@ -47,10 +47,16 @@
 		if($page['SHOW_IN_MENU'] === '1') {
 			$menu[] = [
 				'NAME' => $page['MENU_NAME'],
-				'LINK' => $page['URL']
+				'LINK' => $page['URL'],
+				'SORT' => $page['MENU_SORT']
 			];
 		}
 	}
+
+	// Сортируем пункты меню
+	usort($menu, function($left, $right) {
+		return (intval($left['SORT']) < intval($right['SORT'])) ? -1 : 1;
+	});
 
 	// Создаем ссылки на услуги
 	$service = [];
@@ -61,6 +67,24 @@
 				'LINK' => $page['URL']
 			];
 		}
+	}
+
+	// Создаем хлебные крошки
+	foreach ($pages as $key => $page) {
+		$parts = explode("/", $page['URL']);
+		unset($parts[ count($parts)-1 ]);
+
+		$currentUrl = '';
+		$breadcrumb = [];
+		foreach ($parts as $part) {
+			$currentUrl .= $part . '/';
+
+			$breadcrumb[] = [
+				'NAME' => $pages[$currentUrl]['BREADCRUMB_NAME'],
+				'LINK' => $pages[$currentUrl]['URL']
+			];
+		}
+		$pages[$key]['BREADCRUMBS'] = $breadcrumb;
 	}
 
 	// Шаблонизатор
