@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-	Тут главная
+	<p>
+		{{ $page['SEO_MAIN_TEXT'] }}
+	</p>
 @endsection

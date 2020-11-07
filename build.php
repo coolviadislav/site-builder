@@ -41,6 +41,12 @@
 		unset($rows);
 	}
 
+	foreach ($pages as $key => $page) {
+		if($page['ACTIVE'] === 'Нет') {
+			unset($pages[$key]);
+		}
+	}
+
 	// Создаем меню
 	$menu = [];
 	foreach ($pages as $page) {
@@ -100,7 +106,8 @@
 		$content = $blade->render($page['TEMPLATE'], [
 			'page' => $page,
 			'menu' => $menu,
-			'service' => $service
+			'service' => $service,
+			'config' => $config
 		]);
 
 		// Статус генерации страниц
