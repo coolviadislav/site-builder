@@ -39,6 +39,7 @@
 		unset($rows);
 	}
 
+	// Создаем меню
 	$menu = [];
 	foreach ($pages as $page) {
 		if($page['SHOW_IN_MENU'] === '1') {
@@ -49,6 +50,7 @@
 		}
 	}
 
+	// Создаем ссылки на услуги
 	$service = [];
 	foreach ($pages as $page) {
 		if($page['TEMPLATE'] === 'service') {
