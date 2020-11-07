@@ -17,5 +17,7 @@
 		<h1>{{ $page['SEO_H1'] }}</h1>
 
 		@yield('content')
+
+		@include('layouts.form')
 	</body>
 </html>
