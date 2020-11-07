@@ -85,6 +85,21 @@
 		// Сохраняем сгенерированную страницу в index.html
 		file_put_contents($path . 'index.html', $content);
 	}
+
+	// Создаем карту сайта
+	$sitemap = '';
+	$sitemap .= '<?xml version="1.0" encoding="UTF-8"?>';
+	$sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+	foreach ($pages as $page) {
+		$sitemap .= '<url>';
+			$sitemap .= sprintf('<loc>%s%s</loc>', $config['url'], $page['URL']);
+			$sitemap .= sprintf('<lastmod>%s</lastmod>', date('Y-n-j'));
+			$sitemap .= '<changefreq>daily</changefreq>';
+			$sitemap .= '<priority>1</priority>';
+		$sitemap .= '</url>';
+	}
+	$sitemap .= '</urlset>';
+	file_put_contents($baseDir . DS . 'sitemap.xml', $sitemap);
 	
 	$timeend = microtime(true);
 	echo sprintf('Время работы скрипта: %s сек.', round($timeend - $timestart, 2));
