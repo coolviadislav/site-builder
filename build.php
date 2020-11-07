@@ -1,4 +1,6 @@
 <?php
+	$timestart = microtime(true);
+
 	require('vendor/autoload.php');
 
 	set_time_limit(0);
@@ -77,7 +79,12 @@
 			'service' => $service
 		]);
 
+		// Статус генерации страниц
+		echo sprintf("Генерируем страницу: %s \n", $page['PAGE_NAME']);
+
 		// Сохраняем сгенерированную страницу в index.html
 		file_put_contents($path . 'index.html', $content);
 	}
-
+	
+	$timeend = microtime(true);
+	echo sprintf('Время работы скрипта: %s сек.', round($timeend - $timestart, 2));
