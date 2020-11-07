@@ -1,9 +1,7 @@
 composer.lock
 config.php
 vendor/
-/templates/*
 /cache/*
 /public/*
-!/templates/.gitkeep
 !/cache/.gitkeep
 !/public/.gitkeep
