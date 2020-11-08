@@ -3,6 +3,8 @@ config.php
 vendor/
 /cache/*
 /public/*
+/tmp/*
 !/cache/.gitkeep
 !/public/.gitkeep
+!/tmp/.gitkeep
 !/public/form.php

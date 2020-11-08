@@ -14,14 +14,22 @@
 	$pages = [];
 
 	foreach ($fileImports as $link) {
-		// Ссылка на файл импорта с страницами
-		$lines = file($link);
+		// Созадим временный файл
+		$filename = sprintf('tmp/%s.csv', sha1(uniqid()));
+		copy($link, $filename);
 
-		// Здесь мы парсим CSV файл
 		$rows = [];
-		foreach ($lines as $line) {
-			$rows[] = str_getcsv($line);
+
+		// Читаем CSV файл
+		$handle = fopen($filename, "r");
+		for ($i = 0; $row = fgetcsv($handle ); ++$i) {
+		   	$rows[] = $row;
 		}
+		fclose($handle);
+
+		// Удаляем временный файл
+		unlink($filename);
+
 		// Удаляем техническую информацию о названии полей
 		unset($rows[1]);
 

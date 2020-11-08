@@ -9,12 +9,12 @@
 				<form method="POST" action="form.php">
 					<div class="form-group">
 				        <label>Имя</label>
-				        <input name="text" type="name" class="form-control">
+				        <input name="name" type="text" class="form-control">
 				    </div>
 
 				    <div class="form-group">
 				        <label>Телефон*</label>
-				        <input name="telephone" type="telephone" class="form-control" placeholder="+7 (___) ___-__-__" required="">
+				        <input name="phone" type="text" class="form-control" placeholder="+7 (___) ___-__-__" required="">
 				    </div>
 
 				    <button type="submit" class="btn btn-block btn-lg btn-primary mb-1">

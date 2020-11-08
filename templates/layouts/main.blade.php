@@ -7,6 +7,8 @@
 
 		<meta name="descriotion" content="{{ $page['SEO_DESCRIPTION'] }}">
 
+		<meta name="yandex-verification" content="acd13132eb092c18" />
+
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -79,13 +81,32 @@
 		  	</div>
 		</nav>
 
-		<div class="content">
+		@if($page['URL'] === '/')
 			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1>{{ $page['SEO_H1'] }}</h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="jumbotron">
+                            <h1 class="display-4">
+                                {{ $page['SEO_H1'] }}
+                            </h1>
+                            <p class="lead">
+                            	Мы работаем по региону Серпухову и району круглосуточно.Делаем бесплатный выезд оценки обьекта, имеет большой штат проверенных исполнителей.
+                            </p>
 
-						@if($page['URL'] !== '/')
+                            <a class="btn btn-primary btn-lg" role="button">Узнать стоимость</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		@endif
+
+		<div class="content">
+			@if($page['URL'] !== '/')
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1>{{ $page['SEO_H1'] }}</h1>
+
 							<nav aria-label="breadcrumb">
 							  	<ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 							  		@foreach($page['BREADCRUMBS'] as $key => $item)
@@ -107,10 +128,11 @@
 								    @endforeach
 							  	</ol>
 							</nav>
-						@endif
+						
+						</div>
 					</div>
 				</div>
-			</div>
+			@endif
 
 			<div class="container">
 				<div class="row">
@@ -130,5 +152,21 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Yandex.Metrika counter -->
+		<script type="text/javascript" >
+		   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+		   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+		   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		   ym(69133948, "init", {
+		        clickmap:true,
+		        trackLinks:true,
+		        accurateTrackBounce:true,
+		        webvisor:true
+		   });
+		</script>
+		<noscript><div><img src="https://mc.yandex.ru/watch/69133948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+		<!-- /Yandex.Metrika counter -->
 	</body>
 </html>
