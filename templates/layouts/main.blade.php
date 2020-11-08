@@ -5,7 +5,7 @@
 		
 		<title>{{ $page['SEO_TITLE'] }}</title>
 
-		<meta name="descriotion" content="{{ $page['SEO_DESCRIPTION'] }}">
+		<meta name="description" content="{{ $page['SEO_DESCRIPTION'] }}">
 
 		<meta name="yandex-verification" content="acd13132eb092c18" />
 
