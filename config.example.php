@@ -3,6 +3,8 @@
 		'imports' => [
 			
 		],
+
+		'pictures' => '',
 		
 		'telegram' => [
 			'bot' => '',

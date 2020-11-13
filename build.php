@@ -12,7 +12,7 @@
 	$fileImports = $config['imports'];
 
 	$pages = [];
-
+	// Загружаем страницы сайта
 	foreach ($fileImports as $link) {
 		// Созадим временный файл
 		$filename = sprintf('tmp/%s.csv', sha1(uniqid()));
@@ -54,6 +54,20 @@
 			unset($pages[$key]);
 		}
 	}
+
+	// Загружаем фото
+	$filename = sprintf('tmp/%s.csv', sha1(uniqid()));
+	copy($config['pictures'], $filename);
+	$handle = fopen($filename, "r");
+	for ($i=0; $row = fgetcsv($handle); ++$i) {
+		if($i === 0) { continue; }
+
+	   	$pages[ $row[0] ]['PICTURES'][] = [
+	   		'ALT' => $row[1],
+	   		'SRC' => $row[2]
+	   	];
+	}
+	fclose($handle);
 
 	// Создаем меню
 	$menu = [];
