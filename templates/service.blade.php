@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
+	<img src="{{ $page['MAIN_PICTURE'] }}" alt="{{ $page['SEO_H1'] }}" class="service-main-picture">
+
 	@foreach(explode("\n", $page['SEO_MAIN_TEXT']) as $text)
 		<p>{!! $text !!}</p>
 	@endforeach
@@ -49,7 +51,9 @@
 	<div class="row">
 		@foreach($page['PICTURES'] as $picture)
 			<div class="col-md-3">
-				<img src="{{ $picture['SRC'] }}" class="service-picture" alt="{{ $picture['ALT'] }}">
+				<a data-fancybox="gallery" data-caption="{{ $picture['CAPTION'] }}" href="{{ $picture['SRC'] }}">
+					<img src="{{ $picture['SRC'] }}" class="service-picture" alt="{{ $picture['ALT'] }}">
+				</a>
 			</div>
 		@endforeach
 	</div>

@@ -63,8 +63,9 @@
 		if($i === 0) { continue; }
 
 	   	$pages[ $row[0] ]['PICTURES'][] = [
-	   		'ALT' => $row[1],
-	   		'SRC' => $row[2]
+	   		'CAPTION' => $row[1],
+	   		'ALT' => $row[2],
+	   		'SRC' => $row[3]
 	   	];
 	}
 	fclose($handle);

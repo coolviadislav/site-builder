@@ -19,10 +19,13 @@
 
 		<link rel="stylesheet" type="text/css" href="/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
+		<link rel="stylesheet" type="text/css" href="/vendor/fancybox-master/dist/jquery.fancybox.min.css">
 		<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 
 		<script src="/vendor/jquery-3.5.1.min.js"></script>
 		<script src="/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+		<script src="/vendor/fancybox-master/dist/jquery.fancybox.min.js"></script>
+		<script src="/vendor/jquery.maskedinput.js"></script>
 		<script src="/assets/js/main.js"></script>
 	</head>
 	<body>
@@ -158,23 +161,36 @@
 
 
 		<div class="modal fade" id="callback" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <div class="modal-body">
-		        ...
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
-		      </div>
-		    </div>
-		  </div>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Форма обратной связи</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form method="POST" action="/form.php">
+							<div class="form-group">
+								<label>Телефон</label>
+								<input name="telephone" type="telephone" class="form-control" placeholder="+7 (___) ___-__-__" required>
+							</div>
+							<div class="form-group">
+								<label>Ваше сообщение (необязательно):</label>
+								<textarea name="comment" class="form-control" placeholder="Комментарий к заказу или вопрос"></textarea>
+							</div>
+							<button type="submit" class="btn btn-block btn-lg btn-primary mb-1">
+								Узнать цену
+							</button>
+
+
+							<p class="text-muted text-center mb-0">
+								Перезвоним в течение 10 минут
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<!-- Yandex.Metrika counter -->
